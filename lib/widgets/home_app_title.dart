@@ -1,9 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:test/design/colors.dart';
-import 'package:test/design/radius.dart';
+
+import '../design/colors.dart';
 
 class HomeAppBarTitle extends StatelessWidget {
-  const HomeAppBarTitle({Key? key}) : super(key: key);
+  // final String storeName;
+  const HomeAppBarTitle({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -14,48 +15,42 @@ class HomeAppBarTitle extends StatelessWidget {
           height: 40,
           margin: const EdgeInsets.only(right: 12),
           decoration: const BoxDecoration(
-            color: ColorsRandom.brandPrimaryColor,
-            // image: DecorationImage(
-            //     image: AssetImage('assets/images/store.png')),
-            borderRadius: BorderRadius.all(RadiusBorde.xs),
-          ),
+              image: DecorationImage(
+                  image: AssetImage('assets/images/avatar2.jpeg')),
+              borderRadius: BorderRadius.all(Radius.circular(12))),
         ),
         Expanded(
           child: Text(
             'Store Name',
+            // storeName,
             style: Theme.of(context).textTheme.headlineLarge,
           ),
         ),
-        ContinerHeaderIcon(
-          configMargin: const EdgeInsets.only(right: 12),
-          iconButton: IconButton(
-            onPressed: () => print('presionaron el icono notificaciones'),
-            icon: const Icon(
-              Icons.notifications_none_rounded,
-              color: ColorsRandom.brandPrimaryColor,
-            ),
-          ),
-        ),
-        ContinerHeaderIcon(
-          iconButton: IconButton(
-            onPressed: () => print('presionaron el icono mas'),
-            icon: const Icon(
-              Icons.more_vert,
-              color: ColorsRandom.brandPrimaryColor,
-            ),
-          ),
-        ),
+        ContainerHeaderIcon(
+            configMargin: const EdgeInsets.only(right: 12),
+            iconButton: IconButton(
+                onPressed: () => print('presionarion icono notificiaciones'),
+                icon: const Icon(
+                  Icons.notifications,
+                  color: ColorsRandom.brandPrimaryColor,
+                ))),
+        ContainerHeaderIcon(
+            iconButton: IconButton(
+                onPressed: () => print('presionarion icono mas'),
+                icon: const Icon(
+                  Icons.more_vert,
+                  color: ColorsRandom.brandPrimaryColor,
+                ))),
       ],
     );
   }
 }
 
-class ContinerHeaderIcon extends StatelessWidget {
-  final Widget iconButton;
+class ContainerHeaderIcon extends StatelessWidget {
+  final IconButton iconButton;
   final EdgeInsets? configMargin;
-  const ContinerHeaderIcon(
-      {Key? key, required this.iconButton, this.configMargin})
-      : super(key: key);
+  const ContainerHeaderIcon(
+      {super.key, required this.iconButton, this.configMargin});
 
   @override
   Widget build(BuildContext context) {
@@ -64,9 +59,8 @@ class ContinerHeaderIcon extends StatelessWidget {
       width: 40,
       margin: configMargin,
       decoration: BoxDecoration(
-        border: Border.all(color: ColorsRandom.brandLightColorBorder),
-        borderRadius: const BorderRadius.all(RadiusBorde.xs),
-      ),
+          border: Border.all(color: ColorsRandom.brandLightColorBorder),
+          borderRadius: const BorderRadius.all(Radius.circular(12))),
       child: iconButton,
     );
   }
