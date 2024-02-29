@@ -196,7 +196,11 @@ class CategoriesWidget extends StatelessWidget {
                 fontSize: 13,
                 color: Color.fromRGBO(53, 97, 254, 1)),
           ),
-          onPressed: () => print('View All'),
+          onPressed: () {
+            Navigator.of(context).pushNamed(
+              'new-page',
+            );
+          },
         ),
         const ProductDetailCard(
           pathToProductImage: 'assets/images/pizza.png',

@@ -54,6 +54,7 @@ class TransactionDetailByDay extends StatelessWidget {
       mainAxisAlignment: MainAxisAlignment.start,
       children: [
         Expanded(
+          flex: 0,
           child: Column(
             children: [
               Text(
@@ -77,7 +78,8 @@ class TransactionDetailByDay extends StatelessWidget {
             ],
           ),
         ),
-        Container(
+        Expanded(
+            child: Container(
           width: 340,
           margin: const EdgeInsets.only(left: 16),
           padding: const EdgeInsets.all(12),
@@ -101,7 +103,7 @@ class TransactionDetailByDay extends StatelessWidget {
                     thickness: 2,
                   ),
               itemCount: listofTransactions.length),
-        )
+        ))
       ],
     );
   }
