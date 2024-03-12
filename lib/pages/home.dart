@@ -10,7 +10,8 @@ import '../widgets/summary_card.dart';
 import '../widgets/transaction_detail.dart';
 
 class HomePage extends StatefulWidget {
-  const HomePage({super.key});
+  final String storeName;
+  const HomePage({super.key, required this.storeName});
 
   @override
   State<HomePage> createState() => _HomePageState();
@@ -47,9 +48,12 @@ class _HomePageState extends State<HomePage> {
             borderRadius: BorderRadius.only(
                 bottomLeft: RadiusBorde.small, bottomRight: RadiusBorde.small)),
         backgroundColor: ColorsRandom.brandLightColor,
-        title: const Padding(
-            padding: EdgeInsets.fromLTRB(16, 45, 16, 12),
-            child: HomeAppBarTitle()),
+        title: Padding(
+          padding: const EdgeInsets.fromLTRB(16, 45, 16, 12),
+          child: HomeAppBarTitle(
+            storeName: widget.storeName,
+          ),
+        ),
       ),
       body: Column(
         children: [

@@ -3,6 +3,7 @@ import 'package:test/config/app_routes.dart';
 import 'package:test/design/themes.dart';
 import 'package:test/models/user.dart';
 import 'package:test/pages/home.dart';
+import 'package:test/pages/login_page.dart';
 
 import 'pages/new-page.dart';
 import 'pages/other-page.dart';
@@ -23,9 +24,12 @@ class AppInitial extends StatelessWidget {
                       userData: settings.arguments as User,
                     ));
           case AppRoutes.home:
-            return MaterialPageRoute(builder: (context) => const HomePage());
+            return MaterialPageRoute(
+                builder: (context) => HomePage(
+                      storeName: settings.arguments as String,
+                    ));
           default:
-            return MaterialPageRoute(builder: (context) => const HomePage());
+            return MaterialPageRoute(builder: (context) => const LogInPage());
         }
       },
     );
